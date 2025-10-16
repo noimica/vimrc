@@ -1,0 +1,210 @@
+{
+    // 設定
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": false,
+
+    // インサートモード (inoremap)
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<esc>"]
+        }
+    ],
+
+    // ノーマルモード (nnoremap)
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // 移動の高速化
+        {
+            "before": ["J"],
+            "after": ["5", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["5", "k"]
+        },
+        // 行頭・行末への移動
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        // 画面スクロール
+        {
+            "before": ["U"],
+            "after": ["<C-u>"]
+        },
+        {
+            "before": ["D"],
+            "after": ["<C-d>"]
+        },
+        // リドゥ
+        {
+            "before": ["<C-u>"],
+            "after": ["<C-r>"]
+        },
+        // マクロ動作
+        {
+            "before": ["+"],
+            "after": ["^", "q", "0"]
+        },
+        {
+            "before": ["-"],
+            "after": ["^", "@", "0"]
+        },
+        // テキストオブジェクトの選択 (v" や v' など)
+        // これらのマッピングはVS Code Vimの `textObjects` 機能で実現することが推奨されますが、
+        // `before` と `after` の形式で定義します。
+        // v" -> vi"
+        {
+            "before": ["v", "\""],
+            "after": ["v", "i", "\""]
+        },
+        // v' -> vi'
+        {
+            "before": ["v", "'"],
+            "after": ["v", "i", "'"]
+        },
+        // v` -> vi`
+        {
+            "before": ["v", "`"],
+            "after": ["v", "i", "`"]
+        },
+        // v( -> vi(
+        {
+            "before": ["v", "("],
+            "after": ["v", "i", "("]
+        },
+        // v) -> vi)
+        {
+            "before": ["v", ")"],
+            "after": ["v", "i", ")"]
+        },
+        // v[ -> vi[
+        {
+            "before": ["v", "["],
+            "after": ["v", "i", "["]
+        },
+        // v] -> vi]
+        {
+            "before": ["v", "]"],
+            "after": ["v", "i", "]"]
+        },
+        // v{ -> vi{
+        {
+            "before": ["v", "{"],
+            "after": ["v", "i", "{"]
+        },
+        // v} -> vi}
+        {
+            "before": ["v", "}"],
+            "after": ["v", "i", "}"]
+        },
+        // v< -> vi<
+        {
+            "before": ["v", "<"],
+            "after": ["v", "i", "<"]
+        },
+        // v> -> vi>
+        {
+            "before": ["v", ">"],
+            "after": ["v", "i", ">"]
+        }
+    ],
+
+    // ビジュアルモード (vnoremap)
+    "vim.visualModeKeyBindings": [
+        // 移動の高速化
+        {
+            "before": ["J"],
+            "after": ["5", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["5", "k"]
+        },
+        // 行頭・行末への移動
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        // 画面スクロール
+        {
+            "before": ["U"],
+            "after": ["<C-u>"]
+        },
+        {
+            "before": ["D"],
+            "after": ["<C-d>"]
+        }
+    ],
+
+    // オペレータ・ペンディングモード (onoremap)
+    // テキストオブジェクトの選択 ('i' は内側/inner の意味)
+    // VS Code Vimでは、`operatorPendingModeKeyBindings` を使います。
+    "vim.operatorPendingModeKeyBindings": [
+        // a" や d" などを i" に置き換え
+        // onoremap " i"
+        {
+            "before": ["\""],
+            "after": ["i", "\""]
+        },
+        // onoremap ' i'
+        {
+            "before": ["'"],
+            "after": ["i", "'"]
+        },
+        // onoremap ` i`
+        {
+            "before": ["`"],
+            "after": ["i", "`"]
+        },
+        // onoremap ( i(
+        {
+            "before": ["("],
+            "after": ["i", "("]
+        },
+        // onoremap ) i) (通常は同じ)
+        {
+            "before": [")"],
+            "after": ["i", "("] // <C-i> は ( の代替として機能しない可能性があるため、( i( に合わせて調整
+        },
+        // onoremap [ i[
+        {
+            "before": ["["],
+            "after": ["i", "["]
+        },
+        // onoremap ] i] (通常は同じ)
+        {
+            "before": ["]"],
+            "after": ["i", "["] // <C-i> は [ の代替として機能しない可能性があるため、[ i[ に合わせて調整
+        },
+        // onoremap { i{
+        {
+            "before": ["{"],
+            "after": ["i", "{"]
+        },
+        // onoremap } i} (通常は同じ)
+        {
+            "before": ["}"],
+            "after": ["i", "{"] // <C-i> は { の代替として機能しない可能性があるため、{ i{ に合わせて調整
+        },
+        // onoremap < i<
+        {
+            "before": ["<"],
+            "after": ["i", "<"]
+        },
+        // onoremap > i> (通常は同じ)
+        {
+            "before": [">"],
+            "after": ["i", "<"] // <C-i> は < の代替として機能しない可能性があるため、< i< に合わせて調整
+        }
+    ]
+}
